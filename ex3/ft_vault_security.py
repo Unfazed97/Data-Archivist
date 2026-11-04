@@ -1,3 +1,10 @@
+FRAGMENTS = (
+    "[FRAGMENT 001] Digital preservation protocols established 2087\n"
+    "[FRAGMENT 002] Knowledge must survive the entropy wars\n"
+    "[FRAGMENT 003] Every byte saved is a victory against oblivion\n"
+)
+
+
 def secure_archive(
     file_name: str,
     action: str = "read",
@@ -18,6 +25,7 @@ def secure_archive(
 
 def main() -> None:
     print("=== Cyber Archives Security ===")
+    secure_archive("regular_fragment.txt", "write", FRAGMENTS)
 
     print("\nUsing 'secure_archive' to read from a nonexistent file:")
     print(secure_archive("/not/existing/file"))
@@ -26,7 +34,7 @@ def main() -> None:
     print(secure_archive("/etc/master.passwd"))
 
     print("\nUsing 'secure_archive' to read from a regular file:")
-    result = secure_archive("ancient_fragment.txt")
+    result = secure_archive("regular_fragment.txt")
     print(result)
 
     print("\nUsing 'secure_archive' to write previous content to a new file:")
