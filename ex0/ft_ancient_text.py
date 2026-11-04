@@ -18,15 +18,15 @@ def main() -> None:
     try:
         file = open(content_file, 'r')
         right_file = lire_fichier(file)
-        print("---")
+        print("---\n")
         print(right_file)
         print("---")
-    except OSError as e:
+    except (OSError, UnicodeDecodeError) as e:
         print(f"Error opening file '{content_file}': {e}")
     finally:
         if file is not None:
             file.close()
-            print(f"File: '{content_file}' closed.")
+            print(f"File '{content_file}' closed.")
 
 
 if __name__ == "__main__":
